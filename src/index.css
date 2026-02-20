@@ -1,95 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* === LEMA VIDROS DESIGN SYSTEM === */
+
+    /* Core Palette */
+    --background: 210 30% 97%;
+    --foreground: 220 60% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 60% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 60% 8%;
 
-    --primary: 222.2 47.4% 11.2%;
+    /* Trust Blue - Primary Brand Color */
+    --primary: 215 80% 22%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Ice Blue - CTA Accent */
+    --accent: 200 90% 55%;
+    --accent-foreground: 220 60% 8%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Silver Gray */
+    --secondary: 210 20% 90%;
+    --secondary-foreground: 220 60% 8%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 20% 94%;
+    --muted-foreground: 215 20% 45%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 215 20% 85%;
+    --input: 215 20% 88%;
+    --ring: 200 90% 55%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
+    /* Extended Brand Tokens */
+    --trust-blue: 215 80% 22%;
+    --trust-blue-light: 215 70% 35%;
+    --ice-blue: 200 90% 55%;
+    --ice-blue-glow: 195 100% 70%;
+    --silver: 210 15% 75%;
+    --deep-navy: 220 70% 10%;
+    --glass-white: 0 0% 100%;
+
+    /* Glassmorphism */
+    --glass-bg: hsla(0, 0%, 100%, 0.08);
+    --glass-border: hsla(0, 0%, 100%, 0.2);
+    --glass-shadow: 0 8px 32px 0 hsla(215, 80%, 10%, 0.37);
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(220 70% 10% / 0.85) 0%,
+      hsl(215 80% 22% / 0.7) 50%,
+      hsl(200 90% 30% / 0.6) 100%
+    );
+    --gradient-section: linear-gradient(
+      180deg,
+      hsl(210 30% 97%) 0%,
+      hsl(215 40% 94%) 100%
+    );
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(215 80% 22%) 0%,
+      hsl(200 90% 35%) 100%
+    );
+    --gradient-cta: linear-gradient(
+      135deg,
+      hsl(200 90% 55%) 0%,
+      hsl(195 100% 65%) 100%
+    );
+    --gradient-card: linear-gradient(
+      135deg,
+      hsl(0 0% 100% / 0.1) 0%,
+      hsl(0 0% 100% / 0.05) 100%
+    );
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px hsl(215 80% 22% / 0.08);
+    --shadow-md: 0 4px 24px hsl(215 80% 22% / 0.12);
+    --shadow-lg: 0 8px 48px hsl(215 80% 22% / 0.18);
+    --shadow-glow: 0 0 40px hsl(200 90% 55% / 0.3);
+
+    /* Sidebar (keeping shadcn defaults) */
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
@@ -97,9 +105,262 @@ All colors MUST be HSL.
 @layer base {
   * {
     @apply border-border;
+    scroll-behavior: smooth;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  /* Glassmorphism card */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .glass-card-light {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Fluid typography */
+  .text-hero {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1.1;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  .text-section-title {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1.2;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .text-subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  /* CTA Button */
+  .btn-whatsapp {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    min-height: 52px;
+    padding: 0 2rem;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  }
+
+  .btn-whatsapp:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+  }
+
+  .btn-primary {
+    background: var(--gradient-primary);
+    color: hsl(var(--primary-foreground));
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    min-height: 52px;
+    padding: 0 2rem;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .btn-accent {
+    background: var(--gradient-cta);
+    color: hsl(220 60% 8%);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    min-height: 52px;
+    padding: 0 2rem;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-glow);
+  }
+
+  .btn-accent:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 60px hsl(200 90% 55% / 0.5);
+  }
+
+  /* Section divider */
+  .section-divider {
+    width: 60px;
+    height: 4px;
+    background: var(--gradient-cta);
+    border-radius: 2px;
+  }
+
+  /* Nav link underline effect */
+  .nav-link {
+    position: relative;
+    transition: color 0.2s ease;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: hsl(var(--accent));
+    border-radius: 1px;
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Service card hover */
+  .service-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Gallery item */
+  .gallery-item {
+    overflow: hidden;
+    border-radius: 1rem;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .gallery-item img {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.08);
+  }
+
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, hsl(215 80% 22% / 0.8), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+  }
+
+  .gallery-item:hover .gallery-overlay {
+    opacity: 1;
+  }
+
+  /* Sticky nav background on scroll */
+  .nav-scrolled {
+    background: hsl(var(--primary) / 0.97) !important;
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Float label form */
+  .float-label-group {
+    position: relative;
+  }
+
+  .float-label-group input,
+  .float-label-group textarea {
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .float-label-group label {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    color: hsl(var(--muted-foreground));
+    font-size: 0.875rem;
+  }
+
+  .float-label-group input:focus + label,
+  .float-label-group input:not(:placeholder-shown) + label,
+  .float-label-group textarea:focus + label,
+  .float-label-group textarea:not(:placeholder-shown) + label {
+    top: 0.25rem;
+    font-size: 0.7rem;
+    color: hsl(var(--accent));
+  }
+
+  /* Badge live */
+  .badge-live {
+    animation: pulse-badge 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-badge {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  /* Timeline */
+  .timeline-item {
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--gradient-cta);
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: -6px;
+    top: 0.25rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: hsl(var(--accent));
+    box-shadow: 0 0 12px hsl(200 90% 55% / 0.5);
+  }
+
+  /* Scroll reveal will be handled by framer-motion */
 }
